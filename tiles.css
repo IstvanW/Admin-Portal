@@ -37,7 +37,7 @@
 	 color: #fff;
 }
  .tile.purple {
-	 background: #5133ab;
+	 background: #5232af;
 }
  .tile.purple:hover {
 	 background: #3e2784;
@@ -67,7 +67,14 @@
 	 background: #b8431f;
 }
 
-.row{
-	border: 1px solid red;
+.card-img-top {
+    width: 50%;
+    /*height: 15vw;*/
+    object-fit: cover;
 }
- 
+
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+ } 
