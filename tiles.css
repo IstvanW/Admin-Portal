@@ -66,4 +66,8 @@
  .tile.orange:hover {
 	 background: #b8431f;
 }
+
+.row{
+	border: 1px solid red;
+}
  
