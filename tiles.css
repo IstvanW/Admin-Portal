@@ -49,10 +49,10 @@
 	 background: #7f132d;
 }
  .tile.green {
-	 background: #00a600;
+	 background: #327D2D;
 }
  .tile.green:hover {
-	 background: #007300;
+	 background:#1f4e1c;
 }
  .tile.blue {
 	 background: #2672ec;
@@ -78,3 +78,12 @@
     margin-left: auto;
     margin-right: auto;
  } 
+
+.department-title {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.cards-row {
+	padding-bottom: 50px;
+}
