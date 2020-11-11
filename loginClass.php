@@ -5,8 +5,9 @@ ini_set("display_errors",E_ALL);
 Class loginClass
 {
 	public $post;
-	public $company_User; //user_email
-	public $company_Pass; //user_password
+	public $username; //user_email
+	public $pass; //user_password
+	public $department;
 
 	public $db;
 	public $result;
@@ -15,17 +16,21 @@ Class loginClass
 		$this->db = new Database();
 		
 		$this->post = $post; // $_POST array from form;
-		$this->company_User = $this->post['company_User'];
-		$this->company_Pass = $this->post['company_Pass']; 
+		$this->username = $this->post['username'];
+		$this->pass = $this->post['pass']; 
 	
+		$sql = "SELECT * FROM user WHERE username = '$this->username' AND pass = '$this->pass'";
 		
-		$this->checklogin(); //comment out this line for unitTesting
+		$this->db->query($sql);
+		$this->result = $this->db->single();
+		$this->department = $this->result->department;
+		$this->login();
 		
 	}
 
 public function checklogin()
 {
-		$sql = "SELECT * FROM logincredentials WHERE company_User = '$this->company_User'";
+		
 		
 		$this->db->query($sql);
 		$this->result = $this->db->single();
@@ -43,8 +48,41 @@ public function checklogin()
 
 	public function login()
 	{
-		setcookie('company_ID',$this->result->company_ID,time()+(60*60),'/');
-		exit(header("Location: dashboard.php")); /* Redirect browser */
+		print_r($result);
+		if($this->result){
+			
+			setcookie('id',$this->result->id,time()+(60*60),'/');
+		
+			if ($this->result->department =='1'){ /* support */
+
+			exit(header("Location: support_dpt.html")); /* Redirect browser */
+			}
+			if ($this->result->department_id =='2'){ /* Animal admin */
+
+			exit(header("Location: finance_dpt.php")); /* Redirect browser */
+			}
+			if ($this->result->department_id =='3'){ /* Animal admin */
+
+			exit(header("Location: sales_dpt.php")); /* Redirect browser */
+			}
+			if ($this->result->department_id =='4'){ /* Animal admin */
+
+			exit(header("Location: hr_dpt.php")); /* Redirect browser */
+			}
+			if ($this->result->department_id =='5'){ /* Member admin */
+
+			exit(header("Location: tech_dpt.php")); /* Redirect browser */
+			}
+			else
+			{ 
+				echo"different admin";
+			}
+		
+		} 
+		else 
+		{
+			exit(header("Location: login.php?wp=1")); /* Wrong password, Go back to the same page  */
+		}
 		
 	 }
 	

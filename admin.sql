@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3308
--- Generation Time: Oct 31, 2020 at 01:21 AM
+-- Generation Time: Nov 11, 2020 at 04:06 AM
 -- Server version: 8.0.18
 -- PHP Version: 7.3.12
 
@@ -43,22 +43,24 @@ CREATE TABLE IF NOT EXISTS `link` (
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(200) NOT NULL AUTO_INCREMENT,
   `username` varchar(15) NOT NULL,
-  `password` varchar(15) NOT NULL,
+  `pass` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `department` int(1) NOT NULL,
-  PRIMARY KEY (`username`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`username`, `password`, `department`) VALUES
-('support', 'password', 1),
-('finance', 'password', 2),
-('sales', 'password', 3),
-('hr', 'password', 4),
-('technology', 'password', 5);
+INSERT INTO `user` (`id`, `username`, `pass`, `department`) VALUES
+(1, 'support', 'password', 1),
+(3, 'finance', 'password', 2),
+(4, 'sales', 'password', 3),
+(5, 'hr', 'password', 4),
+(6, 'technology', 'password', 5);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
