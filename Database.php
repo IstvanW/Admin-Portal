@@ -14,7 +14,7 @@
 	 private $host= "localhost";
 	 private $user= "root";
 	 private $pass= "";
-	 private $dbname= "admin_login";
+	 private $dbname= "admin";
 	 public $lastInsertId;
 	 private $dbh;
 	 private $stmt;
