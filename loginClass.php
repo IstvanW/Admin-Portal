@@ -48,7 +48,7 @@ public function checklogin()
 
 	public function login()
 	{
-		print_r($result);
+		//print_r($result);
 		if($this->result){
 			
 			setcookie('id',$this->result->id,time()+(60*60),'/');
@@ -57,19 +57,19 @@ public function checklogin()
 
 			exit(header("Location: support_dpt.html")); /* Redirect browser */
 			}
-			if ($this->result->department_id =='2'){ /* Animal admin */
+			if ($this->result->department =='2'){ /* Animal admin */
 
 			exit(header("Location: finance_dpt.php")); /* Redirect browser */
 			}
-			if ($this->result->department_id =='3'){ /* Animal admin */
+			if ($this->result->department =='3'){ /* Animal admin */
 
 			exit(header("Location: sales_dpt.php")); /* Redirect browser */
 			}
-			if ($this->result->department_id =='4'){ /* Animal admin */
+			if ($this->result->department =='4'){ /* Animal admin */
 
 			exit(header("Location: hr_dpt.php")); /* Redirect browser */
 			}
-			if ($this->result->department_id =='5'){ /* Member admin */
+			if ($this->result->department =='5'){ /* Member admin */
 
 			exit(header("Location: tech_dpt.php")); /* Redirect browser */
 			}
