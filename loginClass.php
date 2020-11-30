@@ -55,7 +55,7 @@ public function checklogin()
 		
 			if ($this->result->department =='1'){ /* support */
 
-			exit(header("Location: support_dpt.html")); /* Redirect browser */
+			exit(header("Location: support_dpt.php")); /* Redirect browser */
 			}
 			if ($this->result->department =='2'){ /* Animal admin */
 
